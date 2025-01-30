@@ -17,26 +17,26 @@ public class Main {
             e.printStackTrace();
         }
 
-        // Display all 10 high scores
+
         System.out.println("Initial High Scores:");
         displayHighScores(players);
 
-        // Create a new player with a high score higher than #8 but lower than #9
+
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter initials for the new player: ");
         String new_initials = scanner.nextLine();
         Player newPlayer = new Player(new_initials, players.get(8).score + 50000);
 
-        // Add the new player to the list
+
         players.add(newPlayer);
 
-        // Sort the list by score in descending order
+
         players.sort((p1, p2) -> Integer.compare(p2.score, p1.score));
 
-        // Drop the lowest score (the new #11)
+
         players.remove(players.size() - 1);
 
-        // Re-display all 10 high scores
+
         System.out.println("\nUpdated High Scores:");
         displayHighScores(players);
     }
