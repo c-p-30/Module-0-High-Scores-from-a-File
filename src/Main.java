@@ -7,9 +7,9 @@ public class Main {
     public static void main(String[] args) {
         List<Player> players = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader("scores.csv"))) {
+        try (BufferedReader buffer = new BufferedReader(new FileReader("scores.csv"))) {
             String line;
-            while ((line = br.readLine()) != null) {
+            while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
                 players.add(new Player(data[0], Integer.parseInt(data[1])));
             }
