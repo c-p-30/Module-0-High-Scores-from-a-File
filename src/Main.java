@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         List<Player> players = new ArrayList<>();
 
-        try (BufferedReader buffer = new BufferedReader(new FileReader("scores.csv"))) {
+        try (BufferedReader buffer = new BufferedReader(new FileReader("src\\scores.csv"))) {
             String line;
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
@@ -17,25 +17,19 @@ public class Main {
             e.printStackTrace();
         }
 
-
         System.out.println("Initial High Scores:");
         displayHighScores(players);
-
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter initials for the new player: ");
         String new_initials = scanner.nextLine();
         Player newPlayer = new Player(new_initials, players.get(8).score + 50000);
 
-
         players.add(newPlayer);
-
 
         players.sort((p1, p2) -> Integer.compare(p2.score, p1.score));
 
-
         players.remove(players.size() - 1);
-
 
         System.out.println("\nUpdated High Scores:");
         displayHighScores(players);
